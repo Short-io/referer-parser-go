@@ -23,7 +23,7 @@ var data refererData
 
 // loadRefererData loads and parses the YAML file.
 func LoadRefererData(filename string) (refererData, error) {
-	refFile, err := os.Open(filename)
+    refFile, err := os.Open(filename)
     dat, _ := ioutil.ReadAll(refFile)
     defer refFile.Close()
 	if err != nil {
@@ -35,6 +35,14 @@ func LoadRefererData(filename string) (refererData, error) {
 	}
 	data = res
     return res, nil;
+}
+
+func LoadRefererDataFromBytes(dat bytes[]) (refererData, error) {
+	res := make(refererData)
+	if err := json.Unmarshal(dat, &res); err != nil {
+		return nil, err
+	}
+	return res, nil
 }
 
 // RefererResult holds the extracted data
