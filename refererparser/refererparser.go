@@ -37,7 +37,7 @@ func LoadRefererData(filename string) (refererData, error) {
     return res, nil;
 }
 
-func LoadRefererDataFromBytes(dat []bytes) (refererData, error) {
+func LoadRefererDataFromBytes(dat []byte) (refererData, error) {
 	res := make(refererData)
 	if err := json.Unmarshal(dat, &res); err != nil {
 		return nil, err
