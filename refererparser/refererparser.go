@@ -42,6 +42,7 @@ func LoadRefererDataFromBytes(dat []byte) (refererData, error) {
 	if err := json.Unmarshal(dat, &res); err != nil {
 		return nil, err
 	}
+	data = res
 	return res, nil
 }
 
